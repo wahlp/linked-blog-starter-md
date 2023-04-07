@@ -1,6 +1,6 @@
 name: Publish Markdown Files
 env:
-  BLOG_REPO: matthewwong525/linked-blog-starter
+  BLOG_REPO: wahlp/nextjs-obsidian-template
   PUBLISH_DIR: publish
 on:
   workflow_dispatch:
@@ -19,6 +19,7 @@ jobs:
       with:
         path: temp_blog
         repository: ${{ env.BLOG_REPO }}
+        token: ${{ secrets.GH_PAT }}
     - name: Install Rust / cargo
       uses: actions-rs/toolchain@v1
       with:
